@@ -10,10 +10,10 @@ const Loading: React.FC = () => {
       </div>
       
       <h2 className="mt-8 text-2xl font-bold text-white animate-pulse">
-        DeepSeek 正在深度思考...
+        系统正在分析...
       </h2>
       <p className="mt-4 text-slate-400 max-w-md text-center">
-        AI 正在综合您的回答，构建多维度的性格画像。
+        正在综合您的回答，构建多维度的性格画像。
       </p>
       
       <div className="mt-8 flex space-x-2">

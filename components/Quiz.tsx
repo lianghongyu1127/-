@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Question, Answer } from '../types';
+import { Question, Answer, Option } from '../types';
 import { ChevronRight } from 'lucide-react';
 
 interface QuizProps {
@@ -15,13 +15,14 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
   const currentQuestion = questions[currentIndex];
   const progress = ((currentIndex + 1) / questions.length) * 100;
 
-  const handleOptionSelect = (optionId: string, optionText: string) => {
+  const handleOptionSelect = (option: Option) => {
     if (animating) return;
 
     const newAnswer: Answer = {
       questionId: currentQuestion.id,
       questionText: currentQuestion.text,
-      selectedOptionText: optionText,
+      selectedOptionText: option.text,
+      scores: option.scores // 捕获该选项的分数
     };
 
     const updatedAnswers = [...answers, newAnswer];
@@ -67,7 +68,7 @@ const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
                 {currentQuestion.options.map((option, idx) => (
                     <button
                         key={option.id}
-                        onClick={() => handleOptionSelect(option.id, option.text)}
+                        onClick={() => handleOptionSelect(option)}
                         className="group flex items-center justify-between w-full p-5 text-left bg-slate-700/50 hover:bg-indigo-600/20 border border-slate-600 hover:border-indigo-500 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-400"
                         style={{ animationDelay: `${idx * 100}ms` }}
                     >

@@ -27,8 +27,8 @@ const Welcome: React.FC<WelcomeProps> = ({ onStart }) => {
         </h1>
         
         <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
-          通过 DeepSeek 大模型深度分析，探索你内心的潜意识。
-          回答几个直觉性问题，让 AI 为你揭示独特的性格原型、优势和隐藏特质。
+          探索你内心的潜意识。
+          回答几个直觉性问题，系统将为你揭示独特的性格原型、优势和隐藏特质。
         </p>
 
         <button 
@@ -42,7 +42,7 @@ const Welcome: React.FC<WelcomeProps> = ({ onStart }) => {
         </button>
         
         <p className="mt-6 text-sm text-slate-500">
-          由 DeepSeek V3 提供技术支持
+          基于大五人格心理学模型
         </p>
       </div>
     </div>

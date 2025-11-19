@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AppState, Answer, PersonalityResult } from './types';
 import { QUESTIONS } from './constants';
-import { analyzePersonality } from './services/geminiService';
+import { calculatePersonality } from './services/scoringService'; // 使用本地计算服务
 import Welcome from './components/Welcome';
 import Quiz from './components/Quiz';
 import Loading from './components/Loading';
@@ -23,15 +23,19 @@ const App: React.FC = () => {
     setAnswers(completedAnswers);
     setAppState(AppState.ANALYZING);
 
-    try {
-      const analysis = await analyzePersonality(completedAnswers);
-      setResult(analysis);
-      setAppState(AppState.RESULT);
-    } catch (err) {
-      console.error(err);
-      setError("无法分析您的性格。请检查您的 API 密钥或重试。");
-      setAppState(AppState.ERROR);
-    }
+    // 模拟一个短暂的思考/计算延迟，提升用户体验
+    setTimeout(() => {
+      try {
+        // 使用本地逻辑计算结果
+        const analysis = calculatePersonality(completedAnswers);
+        setResult(analysis);
+        setAppState(AppState.RESULT);
+      } catch (err) {
+        console.error(err);
+        setError("计算结果时出现错误。");
+        setAppState(AppState.ERROR);
+      }
+    }, 1500); // 1.5秒延迟
   };
 
   const handleReset = () => {

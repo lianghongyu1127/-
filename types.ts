@@ -1,6 +1,8 @@
 export interface Option {
   id: string;
   text: string;
+  // 定义该选项对应的性格分值权重，例如 { "外向性": 10, "开放性": 5 }
+  scores: { [key: string]: number };
 }
 
 export interface Question {
@@ -13,6 +15,8 @@ export interface Answer {
   questionId: number;
   questionText: string;
   selectedOptionText: string;
+  // 我们需要在回答中也传递分数，以便后续计算
+  scores: { [key: string]: number };
 }
 
 export interface TraitScore {
@@ -21,12 +25,12 @@ export interface TraitScore {
 }
 
 export interface PersonalityResult {
-  archetype: string; // e.g., "The Visionary"
-  tagline: string; // e.g., "Dreaming with open eyes"
+  archetype: string;
+  tagline: string;
   description: string;
   strengths: string[];
   weaknesses: string[];
-  radarData: TraitScore[]; // For chart
+  radarData: TraitScore[];
   advice: string;
 }
 

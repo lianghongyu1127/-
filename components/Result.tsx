@@ -94,7 +94,7 @@ const Result: React.FC<ResultProps> = ({ result, onReset }) => {
                                 <Lightbulb className="w-8 h-8 text-blue-300" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-semibold text-white mb-2">DeepSeek 的建议</h3>
+                                <h3 className="text-xl font-semibold text-white mb-2">生活建议</h3>
                                 <p className="text-blue-100 leading-relaxed italic">
                                     {result.advice}
                                 </p>
