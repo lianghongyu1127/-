@@ -1,0 +1,5 @@
+{
+  "name": "SoulMirror - AI 性格测试",
+  "description": "一个视觉精美的性格评估平台，由 DeepSeek AI 提供支持。用户回答问题后，将获得深度生成的心理侧写和特质可视化分析。",
+  "requestFramePermissions": []
+}
